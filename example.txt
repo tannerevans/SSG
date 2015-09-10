@@ -1,0 +1,42 @@
+
+html:
+
+<header>
+  <section class="logo">
+    <!-- logo -->
+  </section>
+  <nav>
+    <!-- nav items -->
+  </nav>
+</header>
+
+
+sass:
+
+header {
+  @include container;
+  section.logo {
+    @include colspan($large-4,$medium-6);
+  }
+  nav {
+    @include colspan($large-8,$medium-6);
+  }
+}
+
+
+full size output:
+*--------*----------------*
+|  logo  |      nav       |
+*--------*----------------*
+
+tablet output:
+*------------*------------*
+|    logo    |    nav     |
+*------------*------------*
+
+mobile output:
+*-------------------------*
+|          logo           |
+*-------------------------*
+|          nav            |
+*-------------------------*
