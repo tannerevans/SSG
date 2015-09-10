@@ -1,0 +1,94 @@
+
+// responsive break points
+
+$break-small: 42em;
+$break-medium: 64em;
+
+
+// apply this mixin to the outer container of the grid
+// if inside another grid, apply a $inner:true variable
+
+@mixin container($inner:false) {
+    width: 100%;
+    max-width: 1016px;
+    margin: 0 auto;
+    &:after { 
+        content: '';
+        display: block;
+        clear: both;
+    }
+    @if $inner == true {
+        width: auto;
+        max-width: none;
+        margin: 0 -1em;
+    }
+}
+
+
+// apply this mixin to each column within the grid
+
+@mixin colspan($large:null,$medium:null,$small:null,$collapse:false) {
+    float: left;
+    padding: 0 1em;
+    @if $collapse == true { padding: 0; }
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    &:not(:first-child):last-child { float: right; }
+    @media screen and (max-width: $break-medium) {
+        @if $large != null { width: 100%; }
+    }
+    @media screen and (max-width: $break-small) {
+        @if $medium != null { width: 100%; }
+    }
+    @if $small != null {
+        @media only screen {
+            @if $small == 1 { width: 8.333%; }
+            @if $small == 2 { width: 16.667%; }
+            @if $small == 3 { width: 25%; }
+            @if $small == 4 { width: 33.333%; }
+            @if $small == 5 { width: 41.667%; }
+            @if $small == 6 { width: 50%; }
+            @if $small == 7 { width: 58.333%; }
+            @if $small == 8 { width: 66.667%; }
+            @if $small == 9 { width: 75%; }
+            @if $small == 10 { width: 83.333%; }
+            @if $small == 11 { width: 91.667%; }
+            @if $small == 12 { width: 100%; }
+        }
+    }
+    @if $medium != null {
+        @media only screen and (min-width: $break-small) {
+            @if $medium == 1 { width: 8.333%; }
+            @if $medium == 2 { width: 16.667%; }
+            @if $medium == 3 { width: 25%; }
+            @if $medium == 4 { width: 33.333%; }
+            @if $medium == 5 { width: 41.667%; }
+            @if $medium == 6 { width: 50%; }
+            @if $medium == 7 { width: 58.333%; }
+            @if $medium == 8 { width: 66.667%; }
+            @if $medium == 9 { width: 75%; }
+            @if $medium == 10 { width: 83.333%; }
+            @if $medium == 11 { width: 91.667%; }
+            @if $medium == 12 { width: 100%; }
+        }
+    }
+    @if $large != null {
+        @media screen and (min-width: $break-medium) {
+            @if $large == 1 { width: 8.333%; }
+            @if $large == 2 { width: 16.667%; }
+            @if $large == 3 { width: 25%; }
+            @if $large == 4 { width: 33.333%; }
+            @if $large == 5 { width: 41.667%; }
+            @if $large == 6 { width: 50%; }
+            @if $large == 7 { width: 58.333%; }
+            @if $large == 8 { width: 66.667%; }
+            @if $large == 9 { width: 75%; }
+            @if $large == 10 { width: 83.333%; }
+            @if $large == 11 { width: 91.667%; }
+            @if $large == 12 { width: 100%; }
+        }
+    }
+    * > :first-child { margin-top: 0; }
+    * > :last-child { margin-bottom: 0; }
+}
