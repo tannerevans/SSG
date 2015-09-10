@@ -26,6 +26,7 @@ $break-medium: 64em;
 
 
 // apply this mixin to each column within the grid
+// $collapse:true will remove padding from column
 
 @mixin colspan($large:null,$medium:null,$small:null,$collapse:false) {
     float: left;
