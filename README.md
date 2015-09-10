@@ -1,2 +1,2 @@
 # SSG
-Simple Sass Grid
+Simple Sass Grid - responsive/stackable
